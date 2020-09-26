@@ -1,0 +1,580 @@
+<script>
+</script>
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <base href="../">
+    <link href="images/Favicon.png" rel="shortcut icon">
+    <title>Ross</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+
+  <script>
+    subject = "further-maths";
+    template={"learnt":"0%","consolidated":"0%", "topicsLearnt": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false, "9":false, "10":false, "11":false, "12":false, "13":false, "14":false, "15":false, "16":false, "17":false, "18":false, "19":false, "20":false, "21":false, "22":false, "23":false, "24":false, "25":false, "26":false, "27":false, "28":false, "29":false, "30":false, "31":false, "32":false, "33":false, "34":false},"topicsConsolidated": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false, "9":false, "10":false, "11":false, "12":false, "13":false, "14":false, "15":false, "16":false, "17":false, "18":false, "19":false, "20":false, "21":false, "22":false, "23":false, "24":false, "25":false, "26":false, "27":false, "28":false, "29":false, "30":false, "31":false, "32":false, "33":false, "34":false}}
+    window.onbeforeunload = function () {
+      if(fileUploaded) {
+      return "Are you sure";
+      };
+    };
+  </script>
+
+<body>
+  <h1 id="mainTitle" style="margin-top:30px">A Level Progress Tracker</h1>
+
+  <div id="navBar">
+    <a href="index.html">Home</a><!--
+    --><a href="subjects.html">Subjects</a><!--
+    --><a href=quickstart.html>Quick Start Guide</a>
+  </div>
+
+  <div class="mainContent">
+    <h1>Maths</h1>
+
+    <h3 style="text-align:center">Learnt</h3>
+    <div class="learnt">
+      <div class="learntBarBack">
+        <div id="learntBar"><div id="learntText">0%</div></div>
+      </div>
+    </div>
+
+    <h3 style="text-align:center">Consolidated</h3>
+    <div class="consolidated">
+      <div class="consolidatedBarBack">
+        <div id="consolidatedBar"><div id="consolidatedText">0%</div></div>
+      </div>
+    </div>
+
+    <div class="uploadWrapper">
+      <button onclick="uploadClick()">Upload Progress</button>
+      <input type="file" id="uploadInput" onchange="fileSetup(event)" hidden />
+      <button disabled="true" id="uploadButton" onclick="download()">Save Progress</button>
+    </div>
+
+      <div class="topics">
+      <div class="topicsLearnt">
+        <h2>Learnt</h2>
+        <div style="overflow=y:auto; overflow-x:hidden"> <!-- Pure -->
+          <div style="width:48%;float:left"> 
+            <h3>Year 1 Pure</h3>
+            <label class="checkboxContainer"><p class="topicName">Matrices and Transformations</p>
+              <input type="checkbox" value = "1" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Complex Numbers</p>
+              <input type="checkbox" value = "2" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Roots of Polynomials</p>
+              <input type="checkbox" value = "3" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Sequences and Series</p>
+              <input type="checkbox" value = "4" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Complex Numbers and Geometry</p>
+              <input type="checkbox" value = "5" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>          
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Matrices and their Inverses</p>
+              <input type="checkbox" value = "6" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Vectors and 3D Space</p>
+              <input type="checkbox" value = "7" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <div style="width:48%;float:right"> 
+            <h3>Year 2 Pure</h3>
+            <label class="checkboxContainer"><p class="topicName">Vectors</p>
+              <input type="checkbox" value = "8" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Matrices</p>
+              <input type="checkbox" value = "9" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Series and Induction</p>
+              <input type="checkbox" value = "10" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Further Calculus</p>
+              <input type="checkbox" value = "11" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Polar Coordinates</p>
+              <input type="checkbox" value = "12" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>          
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Maclaurin Series</p>
+              <input type="checkbox" value = "13" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Hyperbolic Functions</p>
+              <input type="checkbox" value = "14" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Applications of Integration</p>
+              <input type="checkbox" value = "15" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">First Order Differential Equations</p>
+              <input type="checkbox" value = "16" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Complex Numbers</p>
+              <input type="checkbox" value = "17" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Further Vectors</p>
+              <input type="checkbox" value = "18" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Second Order Differential Equations</p>
+              <input type="checkbox" value = "19" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="br"></div>
+
+        <div style="overflow=y:auto; overflow-x:hidden"> <!-- Mechanics -->
+          <div style="width:48%;float:left">
+            <h3>Mechanics Part A</h3>
+            <label class="checkboxContainer"><p class="topicName">Forces</p>
+              <input type="checkbox" value = "20" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Work, Energy and Power</p>
+              <input type="checkbox" value = "21" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Impulse and Momentum</p>
+              <input type="checkbox" value = "22" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Centre of Mass</p>
+              <input type="checkbox" value = "23" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Dimensional Analysis</p>
+              <input type="checkbox" value = "24" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+          </div>
+
+          <div style="width:48%;float:right">
+            <h3>Mechanics Part B</h3>
+            <label class="checkboxContainer"><p class="topicName">Motion Under a Variable Force</p>
+              <input type="checkbox" value = "25" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Circular Motion</p>
+              <input type="checkbox" value = "26" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Hooke's Law</p>
+              <input type="checkbox" value = "27" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Modelling Oscillations</p>
+              <input type="checkbox" value = "28" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Centre of Mass</p>
+              <input type="checkbox" value = "29" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Oblique Impact</p>
+              <input type="checkbox" value = "30" onclick="learntChange(this)" class="topicLearn">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="br"></div>
+
+        <div style="width:50%; margin: auto"> <!-- Stats -->
+          <h3>Statistics</h3>
+          <label class="checkboxContainer"><p class="topicName">Discrete Random Variables</p>
+            <input type="checkbox" value = "31" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Discrete Probability Distributions</p>
+            <input type="checkbox" value = "32" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Bivariate Data</p>
+            <input type="checkbox" value = "33" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Chi-Squared Tests</p>
+            <input type="checkbox" value = "34" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="topicsConsolidated">
+        <h2>Consolidated</h2>
+        <div style="overflow=y:auto; overflow-x:hidden"><!-- Year 1 -->
+          <div style="width:48%;float:left">
+            <h3>Year 1 Pure</h3>
+            <label class="checkboxContainer"><p class="topicName">Matrices and Transformations</p>
+              <input type="checkbox" value = "1" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Complex Numbers</p>
+              <input type="checkbox" value = "2" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Roots of Polynomials</p>
+              <input type="checkbox" value = "3" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Sequences and Series</p>
+              <input type="checkbox" value = "4" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Complex Numbers and Geometry</p>
+              <input type="checkbox" value = "5" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>          
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Matrices and their Inverses</p>
+              <input type="checkbox" value = "6" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Vectors and 3D Space</p>
+              <input type="checkbox" value = "7" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <div style="width:48%;float:right"> 
+            <h3>Year 2 Pure</h3>
+            <label class="checkboxContainer"><p class="topicName">Vectors</p>
+              <input type="checkbox" value = "8" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Matrices</p>
+              <input type="checkbox" value = "9" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Series and Induction</p>
+              <input type="checkbox" value = "10" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Further Calculus</p>
+              <input type="checkbox" value = "11" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Polar Coordinates</p>
+              <input type="checkbox" value = "12" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>          
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Maclaurin Series</p>
+              <input type="checkbox" value = "13" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Hyperbolic Functions</p>
+              <input type="checkbox" value = "14" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Applications of Integration</p>
+              <input type="checkbox" value = "15" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">First Order Differential Equations</p>
+              <input type="checkbox" value = "16" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Complex Numbers</p>
+              <input type="checkbox" value = "17" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Further Vectors</p>
+              <input type="checkbox" value = "18" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Second Order Differential Equations</p>
+              <input type="checkbox" value = "19" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="br"></div>
+
+        <div style="overflow=y:auto; overflow-x:hidden"> <!-- Mechanics -->
+          <div style="width:48%;float:left">
+            <h3>Mechanics Part A</h3>
+            <label class="checkboxContainer"><p class="topicName">Forces</p>
+              <input type="checkbox" value = "20" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Work, Energy and Power</p>
+              <input type="checkbox" value = "21" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Impulse and Momentum</p>
+              <input type="checkbox" value = "22" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Centre of Mass</p>
+              <input type="checkbox" value = "23" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Dimensional Analysis</p>
+              <input type="checkbox" value = "24" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+          </div>
+
+          <div style="width:48%;float:right">
+            <h3>Mechanics Part B</h3>
+            <label class="checkboxContainer"><p class="topicName">Motion Under a Variable Force</p>
+              <input type="checkbox" value = "25" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Circular Motion</p>
+              <input type="checkbox" value = "26" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Hooke's Law</p>
+              <input type="checkbox" value = "27" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Modelling Oscillations</p>
+              <input type="checkbox" value = "28" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Centre of Mass</p>
+              <input type="checkbox" value = "29" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+
+            <div class="br"></div>
+
+            <label class="checkboxContainer"><p class="topicName">Oblique Impact</p>
+              <input type="checkbox" value = "30" onclick="consolidatedChange(this)" class="topicConsolidate">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="br"></div>
+
+        <div style="width:50%; margin: auto"> <!-- Stats -->
+          <h3>Statistics</h3>
+          <label class="checkboxContainer"><p class="topicName">Discrete Random Variables</p>
+            <input type="checkbox" value = "31" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Discrete Probability Distributions</p>
+            <input type="checkbox" value = "32" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Bivariate Data</p>
+            <input type="checkbox" value = "33" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Chi-Squared Tests</p>
+            <input type="checkbox" value = "34" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  
+    <hr>
+    <div style="text-align:center">
+      <h2>Resources</h2>
+      <a target="_blank" href="https://www.ocr.org.uk/Images/308768-specification-accredited-a-level-gce-further-mathematics-b-mei-h645.pdf" ><button>OCR MEI Specification</button></a>
+      <a target="_blank" href="https://2017.integralmaths.org/my/index.php" ><button>MEI Maths Website</button></a>
+      <a target="_blank" href="https://mathsmadeeasy.co.uk/a-level-maths-revision/level-maths-ocr-mei-past-papers/" ><button>MEI Past Papers</button></a>
+      <a target="_blank" href="https://www.physicsandmathstutor.com/maths-revision/" ><button class="smallerButton">Physics and Maths Tutor</button></a>
+  </div>
+  <div class="footer"></div>
+  </body>
+</html>
